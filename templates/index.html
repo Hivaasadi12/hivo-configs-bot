@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hivo Configs - پنل کانفیگ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, #0f172a, #1e293b); }
+        .card { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="min-h-screen text-gray-100">
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-purple-600 bg-clip-text text-transparent">Hivo Configs</h1>
+            <p class="mt-4 text-xl text-gray-300">کانفیگ‌های VLESS • VMess • Trojan • SS – همیشه تازه و سریع</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="card rounded-2xl p-6 shadow-2xl hover:scale-105 transition">
+                <i class="fas fa-server text-5xl text-cyan-400 mb-4 block text-center"></i>
+                <p class="text-center text-sm text-gray-400">کانفیگ منحصربه‌فرد</p>
+                <p class="text-center text-4xl font-bold">{{ stats.unique_configs }}</p>
+            </div>
+            <div class="card rounded-2xl p-6 shadow-2xl hover:scale-105 transition">
+                <i class="fas fa-link text-5xl text-purple-400 mb-4 block text-center"></i>
+                <p class="text-center text-sm text-gray-400">منبع فعال</p>
+                <p class="text-center text-4xl font-bold">{{ stats.sources }}</p>
+            </div>
+            <div class="card rounded-2xl p-6 shadow-2xl hover:scale-105 transition">
+                <i class="fas fa-clock text-5xl text-green-400 mb-4 block text-center"></i>
+                <p class="text-center text-sm text-gray-400">بروزرسانی پست</p>
+                <p class="text-center text-2xl font-bold">{{ stats.update_interval }}</p>
+            </div>
+        </div>
+
+        <div class="card rounded-3xl p-8 shadow-2xl">
+            <h2 class="text-3xl font-bold mb-6 text-center text-cyan-300">لینک‌های اشتراک</h2>
+            <div class="space-y-6 text-right">
+                <div>
+                    <p class="text-lg mb-2">Plain Text (تک‌تک):</p>
+                    <div class="bg-gray-800 rounded-lg p-4 flex items-center justify-between">
+                        <code class="text-cyan-300 break-all flex-1">https://your-app.up.railway.app/sub</code>
+                        <button onclick="navigator.clipboard.writeText('https://your-app.up.railway.app/sub'); alert('کپی شد!')" class="ml-4 text-cyan-400 text-xl"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-lg mb-2">Base64 (مستقیم در v2rayNG):</p>
+                    <div class="bg-gray-800 rounded-lg p-4 flex items-center justify-between">
+                        <code class="text-purple-300 break-all flex-1">https://your-app.up.railway.app/sub64</code>
+                        <button onclick="navigator.clipboard.writeText('https://your-app.up.railway.app/sub64'); alert('کپی شد!')" class="ml-4 text-purple-400 text-xl"><i class="fas fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500">
+            Hivo Configs • ساخته شده با عشق • آخرین چک: {{ stats.last_check }}
+        </footer>
+    </div>
+</body>
+              </html>
